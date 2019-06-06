@@ -11,13 +11,13 @@ import java.util.regex.Pattern;
 public class Classified {
     private String text;
     private int words;
-
+    private String price;
 
     public Classified(){
 
     }
 
-    public Classified(String text){
+   public Classified(String text){
         this.text = text;
     }
 
@@ -30,11 +30,10 @@ public class Classified {
     }
 
     /**
-     * setter for text input
-     * @param text
+     * Getter for price
      */
-    public void setText(String text){
-        this.text = text;
+    public String getPrice(){
+        return this.price;
     }
 
     /**
@@ -55,7 +54,6 @@ public class Classified {
         this.words = splitStringAndCount(text);
 
         System.out.println("Number of words in the given classified are: " +count);
-
     }
 
     /**
@@ -70,24 +68,13 @@ public class Classified {
      * @return
      */
     public void countWordsFromHtml(){
-        //match HTML tags
-       /* String strRegEx = "<[^>]*>";
 
-        // split by new line
-        String[] htmlLines = text.split("\\s+");
-
-        //clear text variable
-        this.text = "";
-
-        //replace all html tags with an empty string
-        for (String line : htmlLines) {
-            line.replaceAll(strRegEx, "");
-            this.text += line;
-        }*/
-
+        //strip HTML tags using the Jsoup library
         String parsedText = Jsoup.parse(text).text();
 
         this.text = parsedText;
+
+        //split the parsed text and count its words
         this.words = splitStringAndCount(this.text);
 
     }
@@ -95,13 +82,18 @@ public class Classified {
     private int splitStringAndCount(String text){
         int count = 0;
 
-
         /**Split the text on whitespaces, then iterate on this array to figure out the exact number of words**/
         String[] array = text.split("\\s+");
 
         for (int i = 0; i < array.length; i++) {
+
+            //if the word is greater or equal than 2 characters and regex pattern does not match punctuation chars, count it as one word
             if (array[i].length() >= 2 && !Pattern.matches("\\p{Punct}", array[i])) {
                 count++;
+            }
+
+            if(array[i].contains("€")){
+                price = array[i];
             }
         }
 

@@ -9,7 +9,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import static org.junit.Assert.assertEquals;
 
 
-public class XeCodingChallengeApplicationTests extends AbstractTest {
+public class WordCounterControllerTests extends AbstractTest {
 
     @Override
     @Before
