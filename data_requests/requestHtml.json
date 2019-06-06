@@ -1,0 +1,5 @@
+{
+
+"text" : "<a href=\"#\">HTML Link</a> <table><tr><td>column1</td></tr></table><script>alert('javascript');</script><br /><br>line break<bR/><br> <!-- html comment --><b>bold text</b>&nbsp;&nbsp;Jack &amp; Jones &lt;script&gt;"
+
+}
