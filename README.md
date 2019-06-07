@@ -1,7 +1,9 @@
 # XE_Java_Coding_Challenge
 A small restful service developed in Spring boot that counts words from classified texts.
 
-This small restful service was developed with Intellij Ultimate edition 2019.1 and Java Spring Boot.
+This service was developed with Intellij Ultimate edition 2019.1 and Java Spring Boot.
+The Open source Java HTML parser Jsoup was used in order to strip the HTML tags when sending classified data edited with HTML.
+
 
 The service is deployed and hosted on Heroku >  https://xe-coding-challenge.herokuapp.com/ 
 
