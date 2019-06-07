@@ -1,2 +1,31 @@
 # XE_Java_Coding_Challenge
 A small restful service developed in Spring boot that counts words from classified texts.
+
+This small restful service was developed with Intellij Ultimate edition 2019.1 and Java Spring Boot.
+
+The service is deployed and hosted on Heroku >  https://xe-coding-challenge.herokuapp.com/ 
+
+The service exposes two endpoints :
+ 1. ` https://xe-coding-challenge.herokuapp.com/count`
+ 2. ` https://xe-coding-challenge.herokuapp.com/countHtml`
+ 
+ 
+
+# Testing
+
+You can directly test the service from your terminal with curl :
+
+`curl -d @request.json -H "Content-Type: application/json"  https://xe-coding-challenge.herokuapp.com/count`
+
+the `data_requests` directory contains some json data file to use for testing . 
+
+OR if you want to pass your own like so:
+` curl -d '{ "text" : "NIKAIA Ασπρα Χώματα, διαμέρισμα 70 τ.μ., ανακαινισμένο το 2010, 1ου, γωνιακό 600€" }' -H "Content-Type: application/json" https://xe-coding-challenge.herokuapp.com/count`
+
+You should receive a response like this:
+
+`{"text":"ΝΙΚΑΙΑ Ασπρα Χώματα, διαμέρισμα 70 τ.μ., 1ου, γωνιακό 600€","words":9,"price":"600€"}`
+
+
+OR
+You can always import the project(with Maven) into your IDE and run this service on localhost. 
