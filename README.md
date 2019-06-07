@@ -22,6 +22,7 @@ You can directly test the service from your terminal with curl :
 the `data_requests` directory contains some json data file to use for testing . 
 
 OR if you want to pass your own like so:
+
 ` curl -d '{ "text" : "NIKAIA Ασπρα Χώματα, διαμέρισμα 70 τ.μ., ανακαινισμένο το 2010, 1ου, γωνιακό 600€" }' -H "Content-Type: application/json" https://xe-coding-challenge.herokuapp.com/count`
 
 You should receive a response like this:
