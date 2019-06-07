@@ -21,14 +21,10 @@ You can directly test the service from your terminal with curl :
 
 the `data_requests` directory contains some json data file to use for testing . 
 
-OR if you want to pass your own like so:
 
-` curl -d '{ "text" : "NIKAIA Ασπρα Χώματα, διαμέρισμα 70 τ.μ., ανακαινισμένο το 2010, 1ου, γωνιακό 600€" }' -H "Content-Type: application/json" https://xe-coding-challenge.herokuapp.com/count`
+After you hit the request, you should receive a similar response:
 
-You should receive a response like this:
-
-`{"text":"ΝΙΚΑΙΑ Ασπρα Χώματα, διαμέρισμα 70 τ.μ., 1ου, γωνιακό 600€","words":9,"price":"600€"}`
+ `{"text":"ΝΙΚΑΙΑ Ασπρα Χώματα, διαμέρισμα 70 τ.μ., 1ου, γωνιακό 600€","words":9,"price":"600€"}`
 
 
-OR
 You can always import the project(with Maven) into your IDE and run this service on localhost. 
