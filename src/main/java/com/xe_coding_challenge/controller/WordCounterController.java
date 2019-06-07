@@ -1,7 +1,8 @@
 
 
-package com.xe_coding_challenge;
+package com.xe_coding_challenge.controller;
 
+import com.xe_coding_challenge.model.Classified;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

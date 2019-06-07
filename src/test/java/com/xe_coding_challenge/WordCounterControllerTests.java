@@ -1,5 +1,6 @@
 package com.xe_coding_challenge;
 
+import com.xe_coding_challenge.model.Classified;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.http.MediaType;
@@ -78,9 +79,31 @@ public class WordCounterControllerTests extends AbstractTest {
         assertEquals(200, status);
 
         assertEquals(jsonToClassified.getWords(), 51);
+        assertEquals(jsonToClassified.getPrice(), "570.000€");
 
+    }
 
-   }
+    @Test
+    public void givenClassifiedFour_countWordsAndReturnJsonWithPrice() throws  Exception {
+
+       String text = "ΕΡΓΑΤΗΣ εως 40 ετων Διπλωμα οδηγησης Για τοποθετηση συλλεκτηρων μπαζων σε οικοδομες Δευ-Σαββ 8ωρη εργασια με ασφαλεια αμοιβή 700€";
+
+        Classified classified = new Classified(text);
+
+        String inputJson = super.mapToJson(classified);
+
+        MvcResult mvcResult = mvc.perform(MockMvcRequestBuilders.post(uri)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(inputJson)).andReturn();
+
+        int status = mvcResult.getResponse().getStatus();
+
+        Classified jsonToClassified = super.mapFromJson(mvcResult.getResponse().getContentAsString(), Classified.class);
+        assertEquals(200, status);
+
+        assertEquals(jsonToClassified.getWords(), 19);
+        assertEquals(jsonToClassified.getPrice(), "700€");
+    }
 
 
 

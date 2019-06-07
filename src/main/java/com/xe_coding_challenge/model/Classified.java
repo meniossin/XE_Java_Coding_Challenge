@@ -1,4 +1,4 @@
-package com.xe_coding_challenge;
+package com.xe_coding_challenge.model;
 
 import org.jsoup.Jsoup;
 
@@ -90,11 +90,14 @@ public class Classified {
             //if the word is greater or equal than 2 characters and regex pattern does not match punctuation chars, count it as one word
             if (array[i].length() >= 2 && !Pattern.matches("\\p{Punct}", array[i])) {
                 count++;
+
+                //if the word contains the euro sign, treat it as price, also increment the count
+                if(array[i].contains("€")){
+                    price = array[i];
+                }
             }
 
-            if(array[i].contains("€")){
-                price = array[i];
-            }
+
         }
 
         return count;
